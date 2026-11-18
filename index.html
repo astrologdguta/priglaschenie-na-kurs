@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Приглашение — курс «Самореализация: Медуза Горгона»</title>
+<meta name="description" content="Приглашение на курс «Самореализация: Медуза Горгона». Путь в состоянии Горгона → Путь Создательницы. Запись в MAX.">
+<style>
+  :root{
+    --gold:#E3C36B;
+    --gold-d:#B99645;
+    --txt:#F0EAF8;
+    --muted:#A99BC0;
+    --card:rgba(26,18,48,.72);
+    --card-2:rgba(142,107,217,.16);
+    --edge:rgba(142,107,217,.45);
+    --amber:#E8B45F;
+    --teal:#74C9B9;
+    --nav-h:78px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{
+    background:#0B0713;
+    color:var(--txt);
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+      radial-gradient(95% 70% at 50% 20%, rgba(72,46,128,.95) 0%, rgba(32,20,60,.88) 45%, rgba(9,6,16,1) 100%),
+      #0B0713;
+  }
+
+  /* ---------- каркас ---------- */
+  .deck{
+    max-width:1280px;
+    margin:0 auto;
+    padding:clamp(16px,2vw,34px) clamp(14px,2.4vw,40px) calc(var(--nav-h) + 28px);
+  }
+  .slide{display:none}
+  .slide.active{
+    display:flex;
+    flex-direction:column;
+    gap:clamp(12px,1.5vw,22px);
+    min-height:calc(100vh - var(--nav-h) - 70px);
+    animation:fade .35s ease both;
+  }
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .slide.active{animation:none}
+  }
+
+  /* ---------- типографика ---------- */
+  h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif}
+  h1{font-size:clamp(26px,3.5vw,46px);line-height:1.08;margin:0;font-weight:700}
+  h2{font-size:clamp(21px,2.6vw,34px);line-height:1.14;margin:0;font-weight:700}
+  p{margin:0}
+  .num{font-size:clamp(11px,1vw,13px);letter-spacing:.16em;color:var(--gold-d);font-weight:700}
+  .sub{color:var(--gold);font-style:italic;font-size:clamp(13px,1.35vw,17px)}
+  .lead{color:var(--muted);font-size:clamp(12px,1.15vw,15px)}
+  .gold{color:var(--gold)}
+  .muted{color:var(--muted)}
+  .quote{font-family:Georgia,serif;font-style:italic;font-size:clamp(16px,1.75vw,23px);line-height:1.3}
+  .big-quote{font-family:Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,32px);line-height:1.32}
+  .kicker{font-size:clamp(11px,1.1vw,14px);letter-spacing:.34em;color:var(--gold);font-weight:700;text-align:center}
+
+  /* ---------- декор ---------- */
+  .rule{display:flex;align-items:center;gap:12px;max-width:540px;width:100%}
+  .rule::before,.rule::after{content:"";height:1px;flex:1}
+  .rule::before{background:linear-gradient(90deg,rgba(227,195,107,0) 0%,rgba(227,195,107,.8) 100%)}
+  .rule::after{background:linear-gradient(270deg,rgba(227,195,107,0) 0%,rgba(227,195,107,.8) 100%)}
+  .rule span{width:9px;height:9px;background:var(--gold);transform:rotate(45deg);border-radius:1.5px;flex:none}
+  .rule.center{margin:0 auto}
+  .emblem{width:clamp(70px,7vw,110px);height:auto;display:block}
+  .emblem.sm{width:clamp(56px,5vw,80px)}
+
+  /* ---------- карточки ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--edge);
+    border-radius:16px;
+    padding:clamp(12px,1.35vw,20px) clamp(14px,1.6vw,24px);
+  }
+  .card.violet{background:var(--card-2);border-color:rgba(227,195,107,.45)}
+  .card.plain{background:rgba(26,18,48,.55)}
+  .grid{display:grid;gap:clamp(10px,1.1vw,16px)}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .auto{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,20px);align-items:start}
+  .stack{display:flex;flex-direction:column;gap:clamp(10px,1.1vw,16px)}
+  .center{text-align:center}
+  .between{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .labels{display:flex;flex-direction:column;gap:clamp(6px,.7vw,10px)}
+
+  .item{font-weight:700;font-size:clamp(15px,1.5vw,19px)}
+  .item.sm{font-weight:600;font-size:clamp(14px,1.35vw,17px)}
+  ul.clean{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(9px,1vw,15px)}
+  ul.clean li{position:relative;padding-left:20px;font-size:clamp(14px,1.35vw,18px)}
+  ul.clean li::before{content:"—";position:absolute;left:0;color:var(--gold-d)}
+  ul.mark li::before{content:"·";color:var(--gold);font-weight:700}
+
+  .panel-title{font-size:clamp(11px,1vw,13px);letter-spacing:.12em;font-weight:700;margin-bottom:clamp(8px,1vw,14px)}
+  .accent-amber{border-color:rgba(232,180,95,.6)}
+  .accent-amber .panel-title{color:var(--amber)}
+  .accent-amber ul.clean li::before{color:var(--amber)}
+  .accent-teal{border-color:rgba(116,201,185,.55)}
+  .accent-teal .panel-title{color:var(--teal)}
+  .accent-teal ul.clean li::before{color:var(--teal)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:clamp(8px,.9vw,13px)}
+  .chip{
+    background:var(--card);
+    border:1px solid var(--edge);
+    border-radius:12px;
+    padding:clamp(8px,.85vw,13px) clamp(14px,1.4vw,22px);
+    color:var(--amber);
+    font-weight:700;
+    font-size:clamp(13px,1.3vw,16px);
+  }
+  .chip.violet{background:var(--card-2);color:var(--txt)}
+
+  .pair{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;padding:clamp(12px,1.3vw,18px) clamp(8px,1vw,14px)}
+  .pair .from{color:var(--muted);font-size:clamp(12px,1.1vw,14px)}
+  .pair .arrow{color:var(--gold);font-weight:700;font-size:clamp(13px,1.2vw,16px)}
+  .pair .to{font-weight:700;font-size:clamp(14px,1.35vw,17px)}
+
+  .lines{display:flex;flex-direction:column;gap:clamp(8px,.9vw,14px)}
+  .lines p{font-family:Georgia,serif;font-size:clamp(15px,1.65vw,21px)}
+
+  /* ---------- блок с QR-кодом ---------- */
+  .qr-card{
+    display:flex;
+    align-items:center;
+    gap:clamp(14px,1.8vw,26px);
+    width:100%;
+    max-width:900px;
+    margin:clamp(10px,1.6vw,26px) auto 0;
+  }
+  .qr{
+    flex:none;
+    width:clamp(118px,15vw,164px);
+    height:auto;
+    background:#FBF8F0;
+    border:1px solid rgba(227,195,107,.55);
+    border-radius:14px;
+    padding:6px;
+  }
+  .qr-title{font-family:Georgia,serif;font-size:clamp(15px,1.5vw,19px);font-weight:700;margin-bottom:8px}
+  .qr-link{margin-top:10px;display:inline-block}
+
+  /* ---------- кнопки-ссылки ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:999px;
+    border:1.2px solid var(--gold);
+    padding:clamp(11px,1.05vw,15px) clamp(20px,2vw,32px);
+    font-weight:700;
+    font-size:clamp(13px,1.15vw,15px);
+    letter-spacing:.02em;
+    text-decoration:none;
+    cursor:pointer;
+    font-family:inherit;
+    transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+  }
+  .btn-solid{background:var(--gold);color:#140C24}
+  .btn-solid:hover{background:#F1D890;transform:translateY(-2px);box-shadow:0 10px 24px rgba(227,195,107,.22)}
+  .btn-ghost{background:rgba(26,18,48,.6);color:var(--gold)}
+  .btn-ghost:hover{background:rgba(227,195,107,.16);transform:translateY(-2px)}
+  .btn-row{display:flex;flex-wrap:wrap;gap:clamp(10px,1.2vw,18px);justify-content:center}
+  a.inline-link{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(227,195,107,.45)}
+  a.inline-link:hover{border-bottom-color:var(--gold)}
+  a.plain-link{color:var(--gold-d);text-decoration:none}
+  a.plain-link:hover{color:var(--gold);text-decoration:underline}
+
+  /* ---------- подвал слайда ---------- */
+  .foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    margin-top:auto;
+    padding-top:clamp(8px,1vw,14px);
+    font-size:clamp(11px,1vw,12.5px);
+    color:var(--muted);
+  }
+
+  /* ---------- навигация ---------- */
+  .nav{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    height:var(--nav-h);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(8px,1.2vw,20px);
+    padding:0 clamp(10px,2vw,20px);
+    background:linear-gradient(180deg,rgba(11,7,19,.35) 0%,rgba(11,7,19,.94) 60%);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-top:1px solid rgba(227,195,107,.18);
+    z-index:20;
+  }
+  .nav .btn{padding:clamp(9px,.9vw,13px) clamp(14px,1.5vw,24px)}
+  .nav .btn[disabled]{opacity:.32;cursor:default;transform:none;box-shadow:none}
+  .dots{display:flex;gap:7px;align-items:center}
+  .dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(240,234,248,.25);cursor:pointer;transition:.18s}
+  .dot:hover{background:rgba(240,234,248,.5)}
+  .dot[aria-current="true"]{background:var(--gold);transform:scale(1.3)}
+  .counter{color:var(--muted);font-size:clamp(11px,.95vw,12.5px);white-space:nowrap;letter-spacing:.06em}
+  .hint{color:var(--muted);font-size:clamp(11px,1vw,13px);text-align:center}
+
+  @media (max-width:860px){
+    .cols,.g2{grid-template-columns:1fr}
+    .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .dots{display:none}
+    .nav{justify-content:space-between}
+  }
+  @media (max-width:640px){
+    .qr-card{flex-direction:column;text-align:center}
+    .qr{width:clamp(130px,42vw,180px)}
+  }
+  @media (max-width:520px){
+    .counter{display:none}
+    .nav{justify-content:space-between}
+    .nav .btn{flex:1;max-width:46%}
+    .foot{flex-direction:column;align-items:flex-start;gap:6px}
+  }
+
+  /* ---------- печать ---------- */
+  @media print{
+    body::before{display:none}
+    body{background:#fff;color:#1a1030}
+    .nav{display:none}
+    .deck{max-width:none;padding:0}
+    .slide{display:flex !important;page-break-after:always;min-height:auto;
+      color:#1a1030;background:#fff;border-bottom:1px solid #ddd;padding:18px 0}
+    .card{background:#f7f5fb;border-color:#cdbde9}
+    .card.violet{background:#f2ecfd}
+    .gold,.sub,.chip{color:#7a5c12}
+    .muted,.lead,.num{color:#5b5470}
+    .btn{background:#f0e3bd;color:#2a1d05}
+    a{color:#5b3fa0}
+    h1,h2,.big-quote,.lines p{color:#1a1030}
+  }
+</style>
+</head>
+<body>
+
+<main class="deck" id="deck">
+
+  <!-- ============ 1. ОБЛОЖКА ============ -->
+  <section class="slide active" aria-label="Слайд 1: обложка">
+    <div style="display:flex;justify-content:center;padding-top:clamp(6px,1.2vw,18px);margin-top:auto">
+      <svg class="emblem" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="94" fill="none" stroke="#E3C36B" stroke-width="9" stroke-opacity=".45" stroke-dasharray="1.6 9"/>
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#E3C36B" stroke-width="2" stroke-opacity=".85"/>
+        <circle cx="100" cy="100" r="74" fill="none" stroke="#E3C36B" stroke-opacity=".38"/>
+        <path d="M100 36 A64 64 0 1 1 36 100" fill="none" stroke="#E3C36B" stroke-opacity=".5"/>
+        <rect x="93" y="93" width="14" height="14" fill="#E3C36B" transform="rotate(45 100 100)"/>
+      </svg>
+    </div>
+
+    <div class="stack center" style="gap:clamp(10px,1.2vw,18px)">
+      <div class="kicker">ПРИГЛАШЕНИЕ НА КУРС</div>
+      <h1>САМОРЕАЛИЗАЦИЯ:<br>МЕДУЗА ГОРГОНА</h1>
+      <div class="rule center"><span></span></div>
+      <p class="serif" style="font-size:clamp(15px,1.8vw,22px);color:var(--gold);font-style:italic">Путь в состоянии Горгона&nbsp; →&nbsp; Путь Создательницы</p>
+      <p class="lead">Автор и ведущая — Светлана</p>
+    </div>
+
+    <div class="btn-row" style="margin-top:clamp(6px,1.4vw,20px)">
+      <a class="btn btn-solid" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">ЗАПИСАТЬСЯ НА КУРС →</a>
+    </div>
+
+    <div class="foot">
+      <span>Связь в чате: ежедневно 9:00–19:00 МСК&nbsp; ·&nbsp; 8&nbsp;961&nbsp;892&nbsp;47&nbsp;15</span>
+      <span class="hint">Листайте: кнопки «Назад / Вперёд», стрелки ← → или свайп</span>
+    </div>
+  </section>
+
+  <!-- ============ 2. ГОРГОНА ============ -->
+  <section class="slide" aria-label="Слайд 2: Горгона — это не чудовище">
+    <div class="stack" style="gap:6px">
+      <div class="num">01</div>
+      <h2>Горгона — это не чудовище</h2>
+    </div>
+    <div class="rule"><span></span></div>
+    <p class="sub">Это состояние выживания. В нём:</p>
+
+    <div class="grid g2">
+      <div class="card"><span class="item">мир кажется опасным</span></div>
+      <div class="card"><span class="item">доверие — рискованным</span></div>
+      <div class="card"><span class="item">люди — непредсказуемыми</span></div>
+      <div class="card"><span class="item">выбор — страшным</span></div>
+      <div class="card"><span class="item">отношения — хрупкими</span></div>
+      <div class="card"><span class="item">свобода — невозможной</span></div>
+    </div>
+
+    <div class="card violet">
+      <p style="font-size:clamp(13px,1.35vw,16px)">Любое препятствие — удар. Любое предательство — конец. Любое давление — угроза. Любое несогласие — атака.</p>
+    </div>
+    <p class="serif gold" style="font-size:clamp(15px,1.7vw,20px);font-style:italic;font-weight:700">Это не твоя вина.&nbsp; Это была твоя частота.</p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>02 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 3. ПОЧЕМУ ЖИЗНЬ «СТАВИЛА ПОДНОЖКИ» ============ -->
+  <section class="slide" aria-label="Слайд 3: почему жизнь ставила подножки">
+    <div class="stack" style="gap:6px">
+      <div class="num">02</div>
+      <h2>Почему жизнь «ставила подножки»</h2>
+    </div>
+    <div class="rule"><span></span></div>
+
+    <div class="cols">
+      <ul class="clean" style="gap:clamp(12px,1.4vw,20px)">
+        <li class="item">Не чтобы сломать.</li>
+        <li class="item">Не чтобы наказать.</li>
+        <li class="item">Не чтобы унизить.</li>
+      </ul>
+      <div class="card violet">
+        <p class="lead" style="color:var(--gold);font-weight:700;margin-bottom:8px">А чтобы сказать:</p>
+        <p class="quote">«Ты не там.<br>Ты не тем живёшь.<br>Ты не тем вибрируешь.<br>Ты не тем смотришь.»</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:4px">Но ты слышала это как:</p>
+    <div class="chips">
+      <span class="chip">боль</span>
+      <span class="chip">хаос</span>
+      <span class="chip">несправедливость</span>
+      <span class="chip">давление</span>
+      <span class="chip">страх</span>
+    </div>
+    <p class="serif gold" style="font-size:clamp(15px,1.7vw,20px);font-style:italic;font-weight:700">Потому что частоты не совпадали.</p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>03 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 4. ВИБРАЦИОННАЯ ГЛУХОТА ============ -->
+  <section class="slide" aria-label="Слайд 4: вибрационная глухота">
+    <div class="stack" style="gap:6px">
+      <div class="num">03</div>
+      <h2>Вибрационная глухота</h2>
+    </div>
+    <div class="rule"><span></span></div>
+    <p class="sub">Когда человек живёт в режиме защиты</p>
+
+    <div class="cols">
+      <div class="card accent-amber">
+        <div class="panel-title">ГОРГОНА СЛЫШИТ ТОЛЬКО</div>
+        <ul class="clean mark">
+          <li>угрозу</li>
+          <li>опасность</li>
+          <li>критику</li>
+          <li>давление</li>
+          <li>контроль</li>
+        </ul>
+      </div>
+      <div class="card accent-teal">
+        <div class="panel-title">ОНА НЕ СЛЫШИТ</div>
+        <ul class="clean mark">
+          <li>подсказки</li>
+          <li>знаки</li>
+          <li>возможности</li>
+          <li>мягкие сигналы</li>
+          <li>направление</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="serif gold" style="font-size:clamp(14px,1.6vw,19px);font-style:italic;margin-top:auto">
+      Она слышит только то, что подтверждает её страх.&nbsp; Это не про «плохой характер».
+    </p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>04 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 5. НОЛЬ ============ -->
+  <section class="slide" aria-label="Слайд 5: ноль — это не пустота">
+    <div class="stack" style="gap:6px">
+      <div class="num">04</div>
+      <h2>Ноль — это не пустота</h2>
+    </div>
+    <div class="rule"><span></span></div>
+    <p class="sub">Это чистота восприятия</p>
+
+    <p class="lead">В нуле:</p>
+    <div class="chips">
+      <span class="chip violet">нет страха</span>
+      <span class="chip violet">нет важности</span>
+      <span class="chip violet">нет контроля</span>
+      <span class="chip violet">нет шума</span>
+      <span class="chip violet">нет тени</span>
+    </div>
+
+    <div class="lines" style="margin-top:clamp(6px,1.2vw,16px)">
+      <p>Когда внутри тишина — ты слышишь всё.</p>
+      <p>Когда внутри нет страха — ты видишь всё.</p>
+      <p>Когда внутри нет шума — ты понимаешь всё.</p>
+      <p>Когда внутри нет тени — ты чувствуешь всё.</p>
+    </div>
+
+    <p class="serif gold" style="font-size:clamp(15px,1.7vw,20px);font-style:italic;font-weight:700;margin-top:auto">
+      Это не магия. Это вибрационная зрелость.
+    </p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>05 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 6. ПУТЬ СОЗДАТЕЛЬНИЦЫ ============ -->
+  <section class="slide" aria-label="Слайд 6: путь Создательницы">
+    <div class="stack" style="gap:6px">
+      <div class="num">05</div>
+      <h2>Путь Создательницы</h2>
+    </div>
+    <div class="rule"><span></span></div>
+    <p class="sub">Ты больше не идёшь путём Горгоны. Ты идёшь путём Создательницы:</p>
+
+    <div class="grid g4">
+      <div class="card pair"><span class="from">препятствия</span><span class="arrow">→</span><span class="to">подсказки</span></div>
+      <div class="card pair"><span class="from">задержки</span><span class="arrow">→</span><span class="to">коррекция курса</span></div>
+      <div class="card pair"><span class="from">трудные люди</span><span class="arrow">→</span><span class="to">зеркала</span></div>
+      <div class="card pair"><span class="from">давление</span><span class="arrow">→</span><span class="to">проверка границ</span></div>
+      <div class="card pair"><span class="from">предательство</span><span class="arrow">→</span><span class="to">освобождение</span></div>
+      <div class="card pair"><span class="from">хаос</span><span class="arrow">→</span><span class="to">перенастройка</span></div>
+      <div class="card pair"><span class="from">страх</span><span class="arrow">→</span><span class="to">сигнал</span></div>
+      <div class="card pair"><span class="from">боль</span><span class="arrow">→</span><span class="to">переход</span></div>
+    </div>
+
+    <p class="serif gold" style="font-size:clamp(15px,1.7vw,20px);font-style:italic">Ты теперь слышишь смысл, а не только эмоцию.</p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>06 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 7. СИСТЕМА И ФОРМУЛЫ ============ -->
+  <section class="slide" aria-label="Слайд 7: твоя система и формулы переключения">
+    <div class="stack" style="gap:6px">
+      <div class="num">06</div>
+      <h2>Твоя система. Формулы переключения</h2>
+    </div>
+    <div class="rule"><span></span></div>
+
+    <div class="cols">
+      <div class="card">
+        <div class="panel-title gold">ХРАНИТЕЛЬНИЦА — ТВОЙ СТАБИЛИЗАТОР</div>
+        <ul class="clean mark" style="gap:clamp(10px,1.1vw,15px)">
+          <li>Медуза отходит</li>
+          <li>Цербер занимает порог</li>
+          <li>Ноль открывается</li>
+          <li>Туман рассеивается</li>
+          <li>Дорога становится видимой</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="card violet">
+          <div class="panel-title gold">ФОРМУЛА МГНОВЕННОГО ПЕРЕКЛЮЧЕНИЯ</div>
+          <p class="quote">«Стоп. Я в Нуле.<br>Я свободна.»</p>
+        </div>
+        <div class="card violet">
+          <div class="panel-title gold">ПЕРЕД СЛОЖНЫМ РАЗГОВОРОМ</div>
+          <p class="quote">«Хранительница, встань рядом.<br>Поставь всё на свои места.»</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:auto">Свобода — это не отсутствие эмоций. Это способность выбирать и не предавать себя.</p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>07 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 8. ИТОГОВАЯ ФОРМУЛА ============ -->
+  <section class="slide" aria-label="Слайд 8: итоговая формула">
+    <div class="between" style="align-items:center">
+      <svg class="emblem sm" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="94" fill="none" stroke="#E3C36B" stroke-width="9" stroke-opacity=".45" stroke-dasharray="1.6 9"/>
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#E3C36B" stroke-width="2" stroke-opacity=".85"/>
+        <rect x="93" y="93" width="14" height="14" fill="#E3C36B" transform="rotate(45 100 100)"/>
+      </svg>
+      <div class="num" style="margin-right:auto">ИТОГОВАЯ ФОРМУЛА СИСТЕМЫ</div>
+    </div>
+
+    <div class="card" style="padding:clamp(18px,2.4vw,40px)">
+      <p class="big-quote">«Я ставлю Хранительницу рядом.<br>
+      Всё встаёт на свои места.<br>
+      Я в Нуле.<br>
+      Я свободна.<br>
+      <strong class="gold">Я выбираю.»</strong></p>
+    </div>
+
+    <p class="serif gold" style="font-size:clamp(15px,1.8vw,21px);font-style:italic;margin-top:auto">Реакция — это тень.&nbsp; Выбор — это свобода.</p>
+    <p class="lead">Это твоя зрелость. Твоя вертикаль. Твоя свобода. Твоя ясность. Твой путь.</p>
+
+    <div class="foot">
+      <a class="plain-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Записаться на курс →</a>
+      <span>08 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============ 9. ТРИ КНОПКИ ЗАПИСИ ============ -->
+  <section class="slide" aria-label="Слайд 9: записаться на курс">
+    <div class="stack center" style="gap:clamp(8px,1.1vw,16px);padding-top:clamp(6px,1.5vw,24px);margin-top:auto">
+      <h2>Ты уже в пути. Осталось сделать шаг.</h2>
+      <p class="lead">Записаться на курс «Самореализация: Медуза Горгона» можно в один клик:</p>
+    </div>
+
+    <div class="btn-row" style="margin-top:clamp(8px,1.6vw,26px)">
+      <a class="btn btn-solid" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">ЗАПИСАТЬСЯ НА КУРС →</a>
+      <a class="btn btn-ghost" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">НАПИСАТЬ В MAX →</a>
+      <a class="btn btn-ghost" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">ВОЙТИ В ЧАТ КУРСА →</a>
+    </div>
+
+    <div class="card qr-card">
+      <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApAAAAKQCAIAAACn190HAAANq0lEQVR4nO3dMW5jNxhGUSnwItJ5K1l6tqJuSpUC1KSdKgZhc/Rf8Zx6YFBPz77gNN/1+bhfAIDZ/nr1AQCArwk2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAEfFziPv/+59VHeCu3X/9eyt/v6vl3//xp7/O05zPt56+qvw+nuQ37+7bKDRsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwAC8nvYp+2hTtvTnbYnvWrafvOq084/7edPc9rn/TxsL9wNGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAKO28Ou761O27ut7xlP24febdrzPO3zTnt/Tvu+6tywASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIMAeNt9y2p7u7v3j1X+/+/nvPv+q1c877f2E73DDBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgAB72HzL7v3m3fvK0/abp33e3eef9vNX7f6+4Hdu2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABBgD/sL9m5fuzdcP8+089vn5nf+vrW4YQNAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0DAcXvY9b3k0/Z3d+83+/mez+T3Z5W/b+/NDRsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACrs/H/dVn4CDT9np37xPz3u/DtD1s3psbNgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AATk97Cn7enW93qnqe8Tn/b866Z9X9Pe//rPr3PDBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgID8HvZu9X3cumn7u6c5bS982u9XfR/a9/uz3LABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEg4OPVB5hu977ytP3maZ93t2nPv75XvXqe+vOvv//+nrS4YQNAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0DAcXvY0/Zr63u0u017/vXnueq0ffRV9fOv8j68lhs2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABFyfj/ulrL5nPO089fNPO8809f3m096faec57X2bxg0bAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAvJ72KftbU/bl62fn/d+/+vv57S97d1O+7yr3LABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEg4OPVB5iuvp+6ew949z4xfOf92f37O+19rv+9WnU77PO6YQNAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0CAYANAgGADQIBgA0DA9fm4X8rs0b72eU7bo512/t3nmfZ5d6v/vu8+/7Tv97T3czc3bAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAj4uMRN26Odtn88zWn7uPXzTzNtL7y+b737+Uz7vurcsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASDg+nzcLyeZtl9r//W1z6f+PtTPc9o+9KrTzjPt/Z/GDRsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwAC8nvYp+2n1veJ69/XtOe/22nv/2mft/734Tbs+9rNDRsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwAC8nvY9X3Z0/ZcpzltX7lu2l7ytPen/nz8vvw/N2wACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIyO9h27f+2edT39+tP59pvA/v/Xycp8UNGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAKO28Ou78vWP++qafvZu532PKfthdefz7Tf92n78bdh3+8qN2wACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAI+Hj1AU532r7s7vNM+7zTTHs+9T34VfX3f5rbsO93NzdsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACLCH/eb7stP2qqft1+4+T32/edW035dpe/P1n7/qtPd/NzdsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACLg+H/dLWX0vltZ+MD/L71fLtN+Xz8N+392wASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABICC/h81rTdsjr++dn/Z8pp1nt2l7zNO+31Wf9rABgGn8lzgABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AATk97Dr+7jT1PeJp+3v1k3bb65/X6ftne92i7+fq9ywASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIODjcpjT9lN3791O2/etP59ppj0f52Hy35Pd3LABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEg4Lg97FW793dXTdtzPW2Ptr7/vaq+Rz5N/fN6H17LDRsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwAC7GHzVnvAq3u9u/d9p+0HT9vbXjXt/NPOM21ve9p56tywASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIMAeNn/UtH3o+vlXzzPt+Zz2POvf17TznMYNGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAAIEGwACBBsAAgQbAALsYX/BPut7q+8xn/Z5d+8x18/Pe3PDBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgADBBoAAwQaAAMEGgIDj9rDt0bbUv6/6XvLq+aftedu3/tnnU/++6tywASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIECwASBAsAEgQLABIOD6fNxffQYA4Atu2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYABAg2AAQINgAECDYAHCZ7z9D9Q7RKhPtMAAAAABJRU5ErkJggg==" width="164" height="164"
+           alt="QR-код: чат записи на курс «Самореализация: Медуза Горгона» в MAX">
+      <div>
+        <p class="qr-title">Наведи камеру телефона — и ты в чате записи курса</p>
+        <p class="lead">Пишите в чат ежедневно с 9:00 до 19:00 МСК<br>или звоните: 8&nbsp;961&nbsp;892&nbsp;47&nbsp;15 — Светлана</p>
+        <a class="inline-link qr-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Открыть в MAX →</a>
+      </div>
+    </div>
+
+    <div class="foot"><span></span><span>09 / 10</span></div>
+  </section>
+
+  <!-- ============ 10. КОНТАКТЫ ============ -->
+  <section class="slide" aria-label="Слайд 10: контакты">
+    <div style="display:flex;justify-content:center;padding-top:clamp(4px,1vw,16px);margin-top:auto">
+      <svg class="emblem sm" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="94" fill="none" stroke="#E3C36B" stroke-width="9" stroke-opacity=".45" stroke-dasharray="1.6 9"/>
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#E3C36B" stroke-width="2" stroke-opacity=".85"/>
+        <circle cx="100" cy="100" r="74" fill="none" stroke="#E3C36B" stroke-opacity=".38"/>
+        <rect x="93" y="93" width="14" height="14" fill="#E3C36B" transform="rotate(45 100 100)"/>
+      </svg>
+    </div>
+
+    <div class="stack center" style="gap:8px">
+      <div class="num">КОНТАКТЫ</div>
+      <h2>Присоединяйся к курсу</h2>
+    </div>
+
+    <div class="stack" style="max-width:820px;width:100%;margin:0 auto">
+      <div class="card between">
+        <span class="muted" style="font-size:clamp(13px,1.2vw,15px)">Пишите в чат</span>
+        <span class="item sm">ежедневно с 9:00 до 19:00 МСК</span>
+      </div>
+      <div class="card between">
+        <span class="muted" style="font-size:clamp(13px,1.2vw,15px)">Телефон</span>
+        <span class="item sm">8&nbsp;961&nbsp;892&nbsp;47&nbsp;15 — Светлана</span>
+      </div>
+      <div class="card between">
+        <span class="muted" style="font-size:clamp(13px,1.2vw,15px)">Чат записи на курс</span>
+        <a class="item sm inline-link" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">Перейти в MAX →</a>
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-top:clamp(8px,1.4vw,22px)">
+      <a class="btn btn-solid" href="https://max.ru/join/29YfDIizY5Yl1WObR6HaBDFGgyCGsFSrkkS_0SxB6_g" target="_blank" rel="noopener noreferrer">НАПИСАТЬ СВЕТЛАНЕ →</a>
+    </div>
+
+    <div class="foot">
+      <span>Курс «Самореализация: Медуза Горгона»</span>
+      <span>10 / 10</span>
+    </div>
+  </section>
+
+</main>
+
+<nav class="nav" aria-label="Навигация по слайдам">
+  <button class="btn btn-ghost" id="prev" type="button" aria-label="Предыдущий слайд">← Назад</button>
+  <div class="dots" id="dots"></div>
+  <span class="counter" id="counter">Слайд 1 из 10</span>
+  <button class="btn btn-ghost" id="next" type="button" aria-label="Следующий слайд">Вперёд →</button>
+</nav>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dotsBox = document.getElementById('dots');
+  var counter = document.getElementById('counter');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var current = 0;
+
+  slides.forEach(function (s, k) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'dot';
+    b.title = 'Слайд ' + (k + 1);
+    b.setAttribute('aria-label', 'Перейти к слайду ' + (k + 1));
+    b.addEventListener('click', function () { go(k); });
+    dotsBox.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsBox.children);
+
+  function go(n) {
+    if (n < 0) { n = 0; }
+    if (n > slides.length - 1) { n = slides.length - 1; }
+    current = n;
+    slides.forEach(function (s, k) {
+      s.classList.toggle('active', k === n);
+    });
+    dots.forEach(function (d, k) {
+      d.setAttribute('aria-current', k === n ? 'true' : 'false');
+    });
+    prev.disabled = (n === 0);
+    next.disabled = (n === slides.length - 1);
+    counter.textContent = 'Слайд ' + (n + 1) + ' из ' + slides.length;
+    try {
+      history.replaceState(null, '', '#' + (n + 1));
+    } catch (e) {
+      /* локальный файл (file://) — история недоступна, это нормально */
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  prev.addEventListener('click', function () { go(current - 1); });
+  next.addEventListener('click', function () { go(current + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault(); go(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault(); go(current - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault(); go(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); go(slides.length - 1);
+    }
+  });
+
+  var touchX = null;
+  document.addEventListener('touchstart', function (e) {
+    touchX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (touchX === null) { return; }
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 55) { go(current + (dx < 0 ? 1 : -1)); }
+    touchX = null;
+  }, { passive: true });
+
+  var start = parseInt((location.hash || '').replace('#', ''), 10);
+  go(start >= 1 && start <= slides.length ? start - 1 : 0);
+})();
+</script>
+</body>
+</html>
